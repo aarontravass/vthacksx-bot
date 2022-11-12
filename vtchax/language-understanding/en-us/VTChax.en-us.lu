@@ -1,0 +1,44 @@
+# Cancel
+- cancel
+- quit
+- abort
+- exit
+- never mind
+- forget about it
+- just stop already
+- end this now
+
+# Help
+- help
+- im stuck
+- how do you work
+- what can you do
+- what can you help me with
+- i need help
+- i need some assistance
+
+# None
+- where is my car?
+- I want to order a pizza
+- place an item on hold
+- Is it going to rain?
+- turn on the lights
+- check my account balance
+- do unicorns really exist
+- duck
+
+# facts
+> add some example phrases to trigger this intent:
+> - please tell me the weather
+> - what is the weather like in {city=Seattle}
+
+> entity definitions:
+> @ ml city
+
+- give me a fun fact
+- give me a fact about CO2 emissions
+- give me an interesting fact
+- a fact about sustainability
+- give me a fact about our environment
+- what is a fun fact about our carbon footprint
+- carbon information

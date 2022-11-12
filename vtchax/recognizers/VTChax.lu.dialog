@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_VTChax",
+  "recognizers": {
+    "en-us": "VTChax.en-us.lu",
+    "": "VTChax.en-us.lu"
+  }
+}
