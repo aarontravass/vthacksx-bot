@@ -21,10 +21,17 @@
 - Hmm, I don't understand. Can you try to ask me in a different way. 
 - I didn't get that. Would you mind rephrasing and try it again.
 
-# SendActivity_7lXYB9()
+# TextInput_Prompt_VzML7N()
 [Activity
-    Text = ${SendActivity_7lXYB9_text()}
+    Text = ${TextInput_Prompt_VzML7N_text()}
 ]
 
-# SendActivity_7lXYB9_text()
-- Global carbon emissions from fossil fuels have significantly increased since 1900.
+# TextInput_Prompt_VzML7N_text()
+- Hi there! How can I help you today?✌️
+# LogAction_Text_OUAnKf()
+[Activity
+    Text = ${LogAction_Text_OUAnKf_text()}
+]
+
+# LogAction_Text_OUAnKf_text()
+- turn.results = ${turn.results}

@@ -3,15 +3,14 @@
     "rootDialog": true,
     "triggers": {
       "": [
-        "WelcomeDialog.en-us"
+        "QuestionDialog.en-us"
       ],
       "Cancel": [
         "CancelDialog.en-us"
       ],
       "Help": [
         "HelpDialog.en-us"
-      ],
-      "facts": ""
+      ]
     }
   }
 }

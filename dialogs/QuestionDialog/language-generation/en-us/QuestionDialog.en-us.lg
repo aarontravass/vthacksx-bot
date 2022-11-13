@@ -1,0 +1,86 @@
+[import](common.lg)
+
+# SendActivity_9jKsSb_text()
+- ${user.response.answer}
+# SendActivity_9jKsSb()
+[Activity
+    Text = ${SendActivity_9jKsSb_text()}
+]
+
+# TextInput_Prompt_8GZAkK_text()
+- Want to learn more? Visit ${user.response.source}
+# TextInput_Prompt_8GZAkK()
+[Activity
+    Text = ${TextInput_Prompt_8GZAkK_text()}
+]
+
+# TextInput_Prompt_22IrJF()
+[Activity
+    Text = ${TextInput_Prompt_22IrJF_text()}
+]
+
+# TextInput_Prompt_22IrJF_text()
+- Sorry, I'm not sure about the answer to that one.😅
+# LogAction_Text_Sy5ZiL()
+[Activity
+    Text = ${LogAction_Text_Sy5ZiL_text()}
+]
+
+# LogAction_Text_Sy5ZiL_text()
+- gfgdfgfdgd
+# LogAction_Text_YOXD0L()
+[Activity
+    Text = ${LogAction_Text_YOXD0L_text()}
+]
+
+# LogAction_Text_YOXD0L_text()
+- Here's the stupid msg.
+# LogAction_Text_OICnwL()
+[Activity
+    Text = ${LogAction_Text_OICnwL_text()}
+]
+
+# LogAction_Text_OICnwL_text()
+- Debug message
+# LogAction_Text_YNeJmu()
+[Activity
+    Text = ${LogAction_Text_YNeJmu_text()}
+]
+
+# LogAction_Text_YNeJmu_text()
+- Random bullshit text.
+# LogAction_Text_H3IAii()
+[Activity
+    Text = ${LogAction_Text_H3IAii_text()}
+]
+
+# LogAction_Text_H3IAii_text()
+- dfsfs
+# LogAction_Text_9PUOxM()
+[Activity
+    Text = ${LogAction_Text_9PUOxM_text()}
+]
+
+# LogAction_Text_9PUOxM_text()
+- fgfgdfgdf
+# LogAction_Text_ZZWXUv()
+[Activity
+    Text = ${LogAction_Text_ZZWXUv_text()}
+]
+
+# LogAction_Text_ZZWXUv_text()
+- dfsdfsdfsdfsdf
+# LogAction_Text_oKWbQi()
+[Activity
+    Text = ${LogAction_Text_oKWbQi_text()}
+]
+
+# LogAction_Text_oKWbQi_text()
+- fdsfsdfsdf
+# LogAction_Text_BXfMjy()
+[Activity
+    Text = ${LogAction_Text_BXfMjy_text()}
+]
+
+# LogAction_Text_BXfMjy_text()
+- dfsdfsdfsdf

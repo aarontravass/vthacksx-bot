@@ -34,18 +34,34 @@
               "condition": "=string(dialog.foreach.value.id) != string(turn.Activity.Recipient.id)",
               "actions": [
                 {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "VzML7N"
+                  },
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "prompt": "${TextInput_Prompt_VzML7N()}",
+                  "property": "user.question"
+                },
+                {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
-                    "id": "PlH6iz",
-                    "comment": "Launches the WelcomeDialog containing logic for greeting users."
+                    "id": "LaJ4Sv"
                   },
                   "activityProcessed": true,
-                  "dialog": "WelcomeDialog"
+                  "dialog": "QuestionDialog",
+                  "options": {}
                 }
               ]
             }
           ],
-          "value": "dialog.foreach.value"
+          "value": "dialog.foreach.value",
+          "index": "dialog.foreach.index"
         }
       ]
     },
@@ -144,23 +160,6 @@
             "comment": "It is recommended to show a message to the user when the bot does not know how to handle an incoming activity and provide follow up options or a help message.\n"
           },
           "activity": "${SendActivity_DidNotUnderstand()}"
-        }
-      ]
-    },
-    {
-      "$kind": "Microsoft.OnIntent",
-      "$designer": {
-        "id": "oQH8Nh",
-        "name": "facts"
-      },
-      "intent": "facts",
-      "actions": [
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "7lXYB9"
-          },
-          "activity": "${SendActivity_7lXYB9()}"
         }
       ]
     }

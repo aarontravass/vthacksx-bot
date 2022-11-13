@@ -1,0 +1,173 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "GrjAuT",
+    "name": "QuestionDialog",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "cJPriG"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "6FFr7c"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "headers": {
+            "Ocp-Apim-Subscription-Key": "8003edfcdec9408c8b9e97b0626848c4"
+          },
+          "responseType": "json",
+          "contentType": "application/json",
+          "body": {
+            "top": 5,
+            "question": "${user.question}",
+            "includeUnstructuredSources": true,
+            "confidenceScoreThreshold": 0.1
+          },
+          "url": "https://vtchax.cognitiveservices.azure.com/language/:query-knowledgebases?projectName=VTChaxQnA&api-version=2021-10-01&deploymentName=production"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "Dvx9ma"
+          },
+          "assignments": [
+            {
+              "property": "user.question",
+              "value": 0
+            },
+            {
+              "property": "user.response",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "4fkzpd"
+          },
+          "itemsProperty": "turn.results.content.answers",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "Ws5X8k"
+              },
+              "condition": "=rand(1, 100) <= min(90, floor(dialog.foreach.value.confidenceScore * 100))",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "76LUoM"
+                  },
+                  "property": "user.response",
+                  "value": {
+                    "answer": "${dialog.foreach.value.answer}",
+                    "source": "${dialog.foreach.value.source}"
+                  }
+                },
+                {
+                  "$kind": "Microsoft.BreakLoop",
+                  "$designer": {
+                    "id": "qtyasd"
+                  }
+                }
+              ]
+            }
+          ],
+          "value": "dialog.foreach.value",
+          "index": "dialog.foreach.index"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "JVmvQO"
+          },
+          "condition": "=user.response == 0",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "uuQDmu"
+              },
+              "property": "user.response",
+              "value": {
+                "answer": "${turn.results.content.answers[0].answer}",
+                "source": "${turn.results.content.answers[0].source}"
+              }
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "qs0jJm"
+          },
+          "condition": "=user.response.answer != 'No answer found'",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "9jKsSb"
+              },
+              "activity": "${SendActivity_9jKsSb()}"
+            },
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "8GZAkK"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "prompt": "${TextInput_Prompt_8GZAkK()}",
+              "property": "user.question"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "22IrJF"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${TextInput_Prompt_22IrJF()}",
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "property": "user.question"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.RepeatDialog",
+          "$designer": {
+            "id": "SFJo6T"
+          },
+          "activityProcessed": true,
+          "allowLoop": "=isString(user.question)"
+        }
+      ]
+    }
+  ],
+  "generator": "QuestionDialog.lg",
+  "recognizer": "QuestionDialog.lu.qna",
+  "id": "QuestionDialog"
+}
